@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   main_langage_C_fixme.c
 // Date de création 	:   25.02.2015
-// Date de modification : 	04.05.2015
+// Date de modification : 	10.11.2015
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -36,7 +36,7 @@
 int main()
 {
     //--- déclaration de variables interne à la function main ---//
-    char var_retour = 'P';
+    char var_retour = CHOIX_MENU_PRINCIPAL;         // initialise la variable de retour
 
     //--- Message de bienvenue ---//
     printf("--- Fixme - Projet en C - Version %d ---", VERSION_PROG);
@@ -49,10 +49,10 @@ int main()
         Template_Display_Menu(var_retour);
         PRINT_SAUT_LIGNE;
         PRINT_SAUT_LIGNE;
-        var_retour = Selection_Menus('M');
+        var_retour = Selection_Menus(CHOIX_MENU);
         PRINT_SAUT_LIGNE;
 
-    }while(var_retour != 'E');
+    }while(var_retour != CHOIX_EXIT);
 
     return 0;
 }

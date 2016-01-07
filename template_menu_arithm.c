@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_arithm.c
 // Date de création 	:   16.04.2015
-// Date de modification : 	09.09.2015
+// Date de modification : 	30.09.2015
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -99,7 +99,7 @@ void Template_Choix_Menu_Conversion(void)
 // Nom de la fonction   : Template_Display_Menu_Arithm
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe -> ici arithmétique
-// Date modfification   : le 19.06.2015
+// Date modfification   : le 30.09.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_Arithm(char choix_menu)
@@ -121,7 +121,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
 
     switch(choix_menu)
     {
-        case('P'):
+        case 'P':
             printf("%s", NAME_M_PRINICIPAL);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -129,7 +129,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
             Template_Choix_Menu_Principal();
         break;
 
-        case('1'):
+        case '1':
             printf("%s", NAME_M_OP_SIMPLE);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -143,7 +143,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
             PRINT_SAUT_LIGNE;
         break;
 
-        case('2'):
+        case '2':
             printf("%s", NAME_M_CONV);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -157,7 +157,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
             PRINT_SAUT_LIGNE;
         break;
 
-        case('A'):
+        case 'A':
             printf("%s", NAME_M_ASTUCE_INCR);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -179,13 +179,13 @@ void Template_Display_Menu_Arithm(char choix_menu)
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe avec les
 //                        differentes options
-// Date modfification   : le 09.09.2015
+// Date modfification   : le 30.09.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_OP_Simple(char choix_menu)
 {
     //--- déclaration de variable interne ---//
-    char i, choix_option;
+    char i;
 
     //--- affiche une ligne entière d'étoile ---//
     PRINT_SAUT_LIGNE;
@@ -201,7 +201,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
 
     switch(choix_menu)
     {
-        case('P'):
+        case 'P':
             printf("%s", NAME_M_PRINICIPAL);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -209,7 +209,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Template_Choix_Menu_Principal();
         break;
 
-        case('1'):
+        case '1':
             printf("%s", NAME_M_ADITION);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -217,7 +217,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Addition();
         break;
 
-        case('2'):
+        case '2':
             printf("%s", NAME_M_SOUSTRACTION);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -225,7 +225,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Soustraction();
         break;
 
-        case('3'):
+        case '3':
             printf("%s", NAME_M_MULTIPLICATION);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -233,7 +233,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Multiplication();
         break;
 
-        case('4'):
+        case '4':
             printf("%s", NAME_M_DIVISION);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -241,7 +241,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Division();
         break;
 
-        case('A'):
+        case 'A':
             printf("%s", NAME_M_ASTUCE_INCR);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -263,7 +263,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe avec les
 //                        differentes options -> ici menu de conversions
-// Date modfification   : le 08.07.2015
+// Date modfification   : le 30.09.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_Conversion(char choix_menu)
@@ -287,7 +287,7 @@ void Template_Display_Menu_Conversion(char choix_menu)
 
     switch(choix_menu)
     {
-        case('1'):
+        case '1':
             printf("%s", NAME_M_CONV_CHAR_NUM);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -297,7 +297,7 @@ void Template_Display_Menu_Conversion(char choix_menu)
             Conv_Char_Num(choix_char);
         break;
 
-        case('2'):
+        case '2':
             printf("%s", NAME_M_CONV_NUM_CHAR);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -306,7 +306,7 @@ void Template_Display_Menu_Conversion(char choix_menu)
             Conv_Num_Char(choix_int);
         break;
 
-        case('3'):
+        case '3':
             printf("%s", NAME_M_CONV_NUM_OCT_HEX);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
@@ -315,7 +315,7 @@ void Template_Display_Menu_Conversion(char choix_menu)
             Conv_Num_Oct_Hex(choix_int);
         break;
 
-        case('A'):
+        case 'A':
             printf("%s", NAME_M_ASTUCE_CONV_CHAR_NUM);
             PRINT_SAUT_LIGNE;
             Template_Menu_Ligne();
