@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   main_langage_C_fixme.c
 // Date de création 	:   25.02.2015
-// Date de modification : 	10.11.2015
+// Date de modification : 	13.03.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -23,6 +23,7 @@
 //--- Librairie utilisées ---//
 //--- Standart ---//
 #include <stdio.h>                  // entrée - sortie
+#include <stdlib.h>                 // pour les fonctions systèmes
 #include <string.h>
 
 //--- Perso ---//
@@ -51,6 +52,7 @@ int main()
         PRINT_SAUT_LIGNE;
         var_retour = Selection_Menus(CHOIX_MENU);
         PRINT_SAUT_LIGNE;
+        DELETE_SCREEN;
 
     }while(var_retour != CHOIX_EXIT);
 

@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu.c
 // Date de création 	:   25.02.2015
-// Date de modification : 	10.11.2015
+// Date de modification : 	13.03.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -20,6 +20,7 @@
 
 //--- librairie standart ---//
 #include <stdio.h>                  // entrée - sortie
+#include <stdlib.h>                 // pour les fonctions systèmes
 #include <string.h>
 
 //--- librairie perso ---//
@@ -29,7 +30,7 @@
 // Nom de la fonction   : Template_Menu_Ligne
 // Entrée / Sortie      : - / - /
 // Description          : affiche la structure du menu --> ligne remplie de '*'
-// Date modfification   : le 08.04.2015
+// Date modfification   : le 13.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Menu_Ligne(void)
@@ -39,14 +40,21 @@ void Template_Menu_Ligne(void)
 
     //--- boucle pour afficher x caractère sur une ligne ---//
     for(i = 0; i < MAX_CARA; i++)
+    #ifdef VISUAL_STUDIO
         printf("*");
+    #else
+          printf("*");
+
+    PRINT_SAUT_LIGNE;
+
+    #endif // VISUAL_STUDIO
 }
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Template_Display_Menu
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe
-// Date modfification   : le 06.11.2015
+// Date modfification   : le 13.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu(char choix_menu)
@@ -74,6 +82,9 @@ void Template_Display_Menu(char choix_menu)
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
             car_retour = Selection_Menus(CHOIX_MENU);       //-> on indique que l'on veut un caractère en retour
+            DELETE_SCREEN;
+
+            //-- appel d'un nouveau menu --//
             Template_Display_Menu_Arithm(car_retour);       //-> affiche le nouveau menu sélectionné
             PRINT_SAUT_LIGNE;
         break;
@@ -87,6 +98,9 @@ void Template_Display_Menu(char choix_menu)
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
             car_retour = Selection_Menus(CHOIX_MENU);       //-> on indique que l'on veut un caractère en retour
+            DELETE_SCREEN;
+
+            //-- appel d'un nouveau menu --//
             Template_Display_Menu_Display(car_retour);      //-> affiche le nouveau menu sélectionné
             PRINT_SAUT_LIGNE;
         break;

@@ -2,7 +2,7 @@
 // Nom du projet 		    : Langage_C_fixme
 // Nom du fichier 		    : display.h
 // Date de création 	    : 25.02.2015
-// Date de modification     : 07.01.2016
+// Date de modification     : 13.03.2019
 //
 // Auteur 				    : Philou (Ph. Bovey)
 //
@@ -22,7 +22,12 @@
 #define DISPLAY_H_INCLUDED
 //--- librairie associée ---//
 
+//-- versionning --//
+#define CODE_BLOCK
+//#define VISUAL_STUDIO
+
 //--- constante ou définition ---//
+//-- caractère spécifique --//
 #define CHOIX_BAS               66          // représente B en caractère
 #define CHOIX_DROITE            68          // représente D en caractère
 #define CHOIX_ENTIER            73          // représente I en caractère
@@ -36,6 +41,8 @@
 #define CHOIX_VIDE              86          // représente V en caractère
 #define MAX_CARA                80          // largeur d'une fenêtre DOS
 
+//-- gestion de message user --//
+#define DELETE_SCREEN           system("cls")
 #define PRINT_SAUT_LIGNE        printf("\n")
 #define PRINT_ESPACE            printf(" ")
 #define PRINT_ETOILE            printf("*");

@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_arithm.c
 // Date de création 	:   16.04.2015
-// Date de modification : 	30.09.2015
+// Date de modification : 	13.03.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -20,6 +20,7 @@
 
 //--- librairie standart ---//
 #include <stdio.h>                  // entrée - sortie
+#include <stdlib.h>                 // pour les fonctions systèmes
 #include <string.h>
 
 //--- librairie perso ---//
@@ -99,7 +100,7 @@ void Template_Choix_Menu_Conversion(void)
 // Nom de la fonction   : Template_Display_Menu_Arithm
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe -> ici arithmétique
-// Date modfification   : le 30.09.2015
+// Date modfification   : le 13.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_Arithm(char choix_menu)
@@ -108,7 +109,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
     char i, var_retour;
 
     //--- affiche une ligne entière d'étoile ---//
-    PRINT_SAUT_LIGNE;
+    //PRINT_SAUT_LIGNE;
     Template_Menu_Ligne();
 
     //--- boucle pour afficher x caractère sur une ligne ---//
@@ -138,6 +139,9 @@ void Template_Display_Menu_Arithm(char choix_menu)
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
             var_retour = Selection_Menus('C');
+            DELETE_SCREEN;
+
+            //-- appel d'un nouveau menu --//
             Template_Display_Menu_OP_Simple(var_retour);
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
@@ -152,6 +156,9 @@ void Template_Display_Menu_Arithm(char choix_menu)
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
             var_retour = Selection_Menus('C');
+            DELETE_SCREEN;
+
+            //-- appel d'un nouveau menu --//
             Template_Display_Menu_Conversion(var_retour);
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
@@ -188,7 +195,7 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
     char i;
 
     //--- affiche une ligne entière d'étoile ---//
-    PRINT_SAUT_LIGNE;
+    //PRINT_SAUT_LIGNE;
     Template_Menu_Ligne();
 
     //--- boucle pour afficher x caractère sur une ligne ---//
