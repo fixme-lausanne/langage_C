@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: calcul_entier.c
 // Date de création 	: 09.04.2015
-// Date de modification : 09.09.2015
+// Date de modification : 23.10.2017
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -20,6 +20,7 @@
 //--- librairie standart ---//
 #include <stdio.h>                  // entrée - sortie
 #include <string.h>
+#include <stdint.h>					// type normalisé
 
 //--- librairie perso ---//
 #include "arithmetique.h"
@@ -205,8 +206,6 @@ void Division(void)
 }
 
 
-
-
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : pemier_calcul
 // Entrée / Sortie      : val_x / val_y
@@ -247,4 +246,63 @@ int pemier_calcul(int val_x)
 
     //--- calcul simple avec retour de la valeur---//
     return(val_x * VAL_CONST);
+}
+
+
+//----------------------------------------------------------------------------------//
+// Nom de la fonction   : Calculs_Segment 
+// Entrée / Sortie      : 
+// Description          : permet de calculer la longueur d'un segment (point A(x,y) 
+//						  à un point B(x,y)) + le milieu du segment en coordonnée X 
+//                        et Y + ainsi que la pente dans un système d'axes à deux 
+//						  dimension 
+// modification         : le 23.10.2017
+// Remarque             : -
+//----------------------------------------------------------------------------------//
+void Calculs_Segment(void)
+{
+	//-- déclaration de variable locale --//
+	double distanceSegmentA_B;
+	float milieuSegment_X, milieuSegment_Y;
+	float pente;
+
+	int8_t pointA_X, pointA_Y;		// définissant le point A  
+	int8_t pointB_X, pointB_Y;		// définissant le point B 
+
+	//-- message utilisateur --//
+	//-- definition du point A (X, Y)
+	PRINT_SAUT_LIGNE; 
+	PRINT_SELECTION_ABSCISSE; 
+	PRINT_SAUT_LIGNE;
+	pointA_X = Select_Var_Entier(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN); 
+	PRINT_SELECTION_ORDONNEE; 
+	PRINT_SAUT_LIGNE;
+	pointA_Y = Select_Var_Entier(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
+	
+	//-- definition du point B (X, Y)
+	PRINT_SAUT_LIGNE;
+	PRINT_SELECTION_ABSCISSE;
+	PRINT_SAUT_LIGNE;
+	pointB_X = Select_Var_Entier(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN);
+	PRINT_SELECTION_ORDONNEE;
+	PRINT_SAUT_LIGNE;
+	pointB_Y = Select_Var_Entier(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
+
+	//-- partie calcul --//
+	//-- calcul de la distance : d = sqrt (Xb - Xa)^2 + (Yb - Ya)^2
+	distanceSegmentA_B = sqrt(pow((pointB_X - pointA_X), 2) + pow((pointB_Y - pointA_Y), 2));
+	//distanceSegmentA_B = sqrt(((pointB_axeX - pointA_axeX)*(pointB_axeX - pointA_axeX)) + ((pointB_axeY - pointA_axeY)*(pointB_axeY - pointA_axeY)));
+
+	//-- calcul coordonéé milieu d'un segment: M_X = (Xa + Xb)/2 et M_Y = (Ya + Yb)/2
+	milieuSegment_X = (pointA_X + pointB_X) / 2.0;
+	milieuSegment_Y = (pointA_Y + pointB_Y) / 2.0;
+
+	//-- calcul de la pente : m = (Yb - Ya) / (Xb - Xa)
+	pente = (float)(pointB_Y - pointA_Y) / (float)(pointB_X - pointA_X);
+
+	//-- affichage des différents calculs --// 
+	printf("la distance du segment A - B est de : %f \n", distanceSegmentA_B);
+	printf("le milieu du segment A - B est pour l'abssice de : %f \n", milieuSegment_X);
+	printf("le milieu du segment A - B est pour l'ordonnee : %f \n", milieuSegment_Y);
+	printf("la pente vaut : %f", pente);
 }

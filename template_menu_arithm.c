@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_arithm.c
 // Date de création 	:   16.04.2015
-// Date de modification : 	13.03.2019
+// Date de modification : 	14.03.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -270,71 +270,80 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe avec les
 //                        differentes options -> ici menu de conversions
-// Date modfification   : le 30.09.2015
+// Date modfification   : le 29.12.2018
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_Conversion(char choix_menu)
 {
-    //--- déclaration de variable interne ---//
-    char i, choix_char;
+	//--- déclaration de variable interne ---//
+	char i, choix_char;
 
-    int choix_int;
+	int choix_int;
 
-    //--- affiche une ligne entière d'étoile ---//
-    PRINT_SAUT_LIGNE;
-    Template_Menu_Ligne();
+	//--- affiche une ligne entière d'étoile ---//
+	PRINT_SAUT_LIGNE;
+	Template_Menu_Ligne();
 
-    //--- boucle pour afficher x caractère sur une ligne ---//
-    for(i = 0; i < 3; i++)
-        printf("*");
+	//--- boucle pour afficher x caractère sur une ligne ---//
+	for (i = 0; i < 3; i++)
+		printf("*");
 
-    //--- pour l'esthétique afficher un espace avant le mots "menu" ---/
-    PRINT_ESPACE;
-    PRINT_M_MENU;
+	//--- pour l'esthétique afficher un espace avant le mots "menu" ---/
+	PRINT_ESPACE;
+	PRINT_M_MENU;
 
-    switch(choix_menu)
-    {
-        case '1':
-            printf("%s", NAME_M_CONV_CHAR_NUM);
-            PRINT_SAUT_LIGNE;
-            Template_Menu_Ligne();
-            PRINT_SAUT_LIGNE;
-            PRINT_SELECTION_CHAR;
-            choix_char = Select_Var_Cara();
-            Conv_Char_Num(choix_char);
-        break;
+	switch (choix_menu)
+	{
+	case '1':
+		printf("%s", NAME_M_CONV_CHAR_NUM);
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		PRINT_SAUT_LIGNE;
+		PRINT_SELECTION_CHAR;
+		choix_char = Select_Var_Cara();
+		Conv_Char_Num(choix_char);
+		break;
 
-        case '2':
-            printf("%s", NAME_M_CONV_NUM_CHAR);
-            PRINT_SAUT_LIGNE;
-            Template_Menu_Ligne();
-            PRINT_SAUT_LIGNE;
-            choix_int = Select_Var_Entier();
-            Conv_Num_Char(choix_int);
-        break;
+	case '2':
+		printf("%s", NAME_M_CONV_NUM_CHAR);
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		PRINT_SAUT_LIGNE;
+		choix_int = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
+		Conv_Num_Char(choix_int);
+		break;
 
-        case '3':
-            printf("%s", NAME_M_CONV_NUM_OCT_HEX);
-            PRINT_SAUT_LIGNE;
-            Template_Menu_Ligne();
-            PRINT_SAUT_LIGNE;
-            choix_int = Select_Var_Entier();
-            Conv_Num_Oct_Hex(choix_int);
-        break;
+	case '3':
+		printf("%s", NAME_M_CONV_NUM_OCT_HEX);
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		PRINT_SAUT_LIGNE;
+		choix_int = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
+		Conv_Num_Oct_Hex(choix_int);
+		break;
 
-        case 'A':
-            printf("%s", NAME_M_ASTUCE_CONV_CHAR_NUM);
-            PRINT_SAUT_LIGNE;
-            Template_Menu_Ligne();
-            Astuce_ASCII();
-        break;
+	case '4':
+		printf("%s", NAME_M_CONV_DECIMAL_BINAIRE);
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		PRINT_SAUT_LIGNE;
+		choix_int = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
+		ConvDeciBinaire(choix_int);
+		break;
+
+	case 'A':
+		printf("%s", NAME_M_ASTUCE_CONV_CHAR_NUM);
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		Astuce_ASCII();
+		break;
 
 
-        default:
-            printf("LA SELECTION N'EXISTE PAS !!!");
-            PRINT_SAUT_LIGNE;
-            Template_Menu_Ligne();
-        break;
-    }
+	default:
+		printf("LA SELECTION N'EXISTE PAS !!!");
+		PRINT_SAUT_LIGNE;
+		Template_Menu_Ligne();
+		break;
+	}
 
 }

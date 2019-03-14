@@ -1,26 +1,26 @@
 //-----------------------------------------------------------------------------------//
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: affichage.c
-// Date de crÃ©ation 	: 30.09.2015
-// Date de modification : 07.01.2016
+// Date de création 	: 30.09.2015
+// Date de modification : 23.10.2017
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
-// Description          : fichier comportant diffÃ©rentes fonctions pour permettre des
+// Description          : fichier comportant différentes fonctions pour permettre des
 //                        effets visuelless
 //
 //
 // Remarques :            lien pour la table ASCII :
 // 						  -> http://www.asciitable.com/
 // 						  lien pour la saisie de clavier avec getc & getchar pour ne pas
-//                        avoir des erreurs d'interprÃ©tation
+//                        avoir des erreurs d'interprétation
 // 						  -> http://fr.openclassrooms.com/informatique/cours/utiliser-les-bonnes-fonctions-d-entree
-// 						  lien vers diffÃ©rents
-// 						  -> http://fr.wikipedia.org/wiki/String.h
+// 						  lien vers différents
+// 						  -> http://fr.wikipedia.org/wiki/String.h
 //----------------------------------------------------------------------------------//
 
 //--- librairie standart ---//
-#include <stdio.h>                  // entrÃ©e - sortie
+#include <stdio.h>                  // entrée - sortie
 #include <string.h>
 
 //--- librairie perso ---//
@@ -28,14 +28,14 @@
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Triangle_Etoile_AGB
-// EntrÃ©e / Sortie      : nb_etoile / - /
+// Entrée / Sortie      : nb_etoile / - /
 // Description          : affiche un triangle rectangle selon le choix du user
 // Date modfification   : le 19.11.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Triangle_Etoile_AGB(int nb_etoile)
 {
-    //--- dÃ©claration de variable interne ---//
+    //--- déclaration de variable interne ---//
     int c, l;       // c = colonne || l = ligne
 
     for(l = 0; l < nb_etoile; l++)
@@ -49,15 +49,15 @@ void Triangle_Etoile_AGB(int nb_etoile)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Triangle_Etoile_ADB
-// EntrÃ©e / Sortie      : nb_etoile / - /
+// Entrée / Sortie      : nb_etoile / - /
 // Description          : affiche un triangle rectangle selon le choix du user
 // Date modfification   : le 19.11.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Triangle_Etoile_ADB(int nb_etoile)
 {
-    //--- dÃ©claration de variable interne ---//
-    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne Ã©toile
+    //--- déclaration de variable interne ---//
+    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne étoile
 
     for(l = 0; l < nb_etoile; l++)
     {
@@ -79,14 +79,14 @@ void Triangle_Etoile_ADB(int nb_etoile)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Triangle_Etoile_AGH
-// EntrÃ©e / Sortie      : nb_etoile / - /
+// Entrée / Sortie      : nb_etoile / - /
 // Description          : affiche un triangle rectangle selon le choix du user
 // Date modfification   : le 19.11.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Triangle_Etoile_AGH(int nb_etoile)
 {
-    //--- dÃ©claration de variable interne ---//
+    //--- déclaration de variable interne ---//
     int c, l;       // c = colonne || l = ligne
 
     for(l = 0; l < nb_etoile; l++)
@@ -100,15 +100,15 @@ void Triangle_Etoile_AGH(int nb_etoile)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Triangle_Etoile_AGH
-// EntrÃ©e / Sortie      : nb_etoile / - /
+// Entrée / Sortie      : nb_etoile / - /
 // Description          : affiche un triangle rectangle selon le choix du user
 // Date modfification   : le 11.11.2015
-// Remarque             : en commentaire une deuxiÃ¨me variente
+// Remarque             : en commentaire une deuxième variente
 //----------------------------------------------------------------------------------//
 void Triangle_Etoile_ADH(int nb_etoile)
 {
-    //--- dÃ©claration de variable interne ---//
-    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne Ã©toile
+    //--- déclaration de variable interne ---//
+    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne étoile
 
     for(l = 0; l < nb_etoile; l++)
     {
@@ -143,18 +143,18 @@ PRINT_SAUT_LIGNE;
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Choix_Emplacement_Triangle
-// EntrÃ©e / Sortie      : choix_HB, choix_GD / - /
+// Entrée / Sortie      : choix_HB, choix_GD / - /
 // Description          : permet de choisir quel triangle on veut afficher en
 //                        fonction du choix utilisateur
-// Date modfification   : le 19.11.2015
+// Date modfification   : le 23.10.2017
 // Remarque             :
 //----------------------------------------------------------------------------------//
 void Choix_Emplacement_Triangle(char choix_HB, char choix_GD)
 {
-    //--- dÃ©claration de variable ---//
+    //--- déclaration de variable ---//
     int choix_val;
 
-    choix_val = Select_Var_Entier();
+    choix_val = Select_Var_Entier(LIMITE_ETOILE_MAX, LIMITE_ETOILE_MIN);
 
     if(choix_HB == CHOIX_HAUT)
     {
@@ -174,14 +174,14 @@ void Choix_Emplacement_Triangle(char choix_HB, char choix_GD)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Carre
-// EntrÃ©e / Sortie      : val_user / - /
-// Description          : affiche un carrÃ© plein d'Ã©toiles
+// Entrée / Sortie      : val_user / - /
+// Description          : affiche un carré plein d'étoiles
 // Date modfification   : le 10.11.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Carre(int val_user)
 {
-    //--- dÃ©claration de variable ---//
+    //--- déclaration de variable ---//
     int c, l;
 
     //--- boucle pour afficher chaque ligne ---//
@@ -197,17 +197,17 @@ void Carre(int val_user)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Parallelogramme_AG
-// EntrÃ©e / Sortie      : val_user / - /
+// Entrée / Sortie      : val_user / - /
 // Description          : affiche un parallelogramme avec l'angle a gauche
 // Date modfification   : le 11.11.2015
-// Remarque             : on lieu de la boucle de deux boucle for imbriquÃ©e =>
+// Remarque             : on lieu de la boucle de deux boucle for imbriquée =>
 //                        utilisation d'une boucle while (externe) et de la boucle
 //                        do ..while pour la boucle (interne)
 //----------------------------------------------------------------------------------//
 void Parallelogramme_AG(int val_user)
 {
-    //--- dÃ©claration de variable interne ---//
-    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne Ã©toile
+    //--- déclaration de variable interne ---//
+    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne étoile
 
     //--- initialisation de variable ---//
     l = 0;
@@ -215,7 +215,7 @@ void Parallelogramme_AG(int val_user)
     //--- gestion du traitement des lignes ---//
     while(l < val_user)
     {
-        //--- initialisation de variables pour la 2Ã¨me boucle ---//
+        //--- initialisation de variables pour la 2ème boucle ---//
         c = l;
         c_e = (val_user + l);
 
@@ -235,13 +235,13 @@ void Parallelogramme_AG(int val_user)
         }while(c_e > 0);
 
         PRINT_SAUT_LIGNE;
-        //--- incrÃ©mentation de la ligne ---//
+        //--- incrémentation de la ligne ---//
         l++;
     }
 }
 
 /* ----------------------------------------------------------------------------------
---- autre solution mais cette fois avec des boucles for imbriquÃ©e ---
+--- autre solution mais cette fois avec des boucles for imbriquée ---
 for(l = 0; l < val_user; l++){
     for(c = l, c_e = (val_user + l); c_e > 0  ; c_e--){
         if(c < 1)
@@ -260,17 +260,17 @@ for(l = 0; l < val_user; l++){
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Parallelogramme_AD
-// EntrÃ©e / Sortie      : val_user / - /
+// Entrée / Sortie      : val_user / - /
 // Description          : affiche un parallelogramme avec l'angle a droite
 // Date modfification   : le 06.01.2016
-// Remarque             : on lieu de la boucle de deux boucle for imbriquÃ©e =>
+// Remarque             : on lieu de la boucle de deux boucle for imbriquée =>
 //                        utilisation d'une boucle while (externe) et de la boucle
 //                        do ..while pour la boucle (interne)
 //----------------------------------------------------------------------------------//
 void Parallelogramme_AD(int val_user)
 {
-    //--- dÃ©claration de variable interne ---//
-    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne Ã©toile
+    //--- déclaration de variable interne ---//
+    int c, c_e, l;       // c = colonne || l = ligne || c_e = colonne étoile
 
     //--- initialisation de variable ---//
     l = 0;
@@ -278,7 +278,7 @@ void Parallelogramme_AD(int val_user)
     //--- gestion du traitement des lignes ---//
     while(l < val_user)
     {
-        //--- initialisation de variables pour la 2Ã¨me boucle ---//
+        //--- initialisation de variables pour la 2ème boucle ---//
         c = l;
         c_e = val_user;
 
@@ -293,26 +293,26 @@ void Parallelogramme_AD(int val_user)
             PRINT_ETOILE;
 
         PRINT_SAUT_LIGNE;
-        //--- incrÃ©mentation de la ligne ---//
+        //--- incrémentation de la ligne ---//
         l++;
     }
 }
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Selection_Sens_Paralelogramme
-// EntrÃ©e / Sortie      : choix_user / - /
+// Entrée / Sortie      : choix_user / - /
 // Description          : permet de choisir entre la direction de l'angle d'un
 //                        parallelogramme
-// Date modfification   : le 07.01.2016
+// Date modfification   : le 23.10.2017
 // Remarque             :
 //----------------------------------------------------------------------------------//
 void Selection_Sens_Paralelogramme(char choix_user)
 {
-    //--- dÃ©claration de variables ---//
+    //--- déclaration de variables ---//
     int val_user;
 
-    //--- choix du nb d'Ã©toile Ã  afficher dans le parallÃ©logramme ---//
-    val_user = Select_Var_Entier();
+    //--- choix du nb d'étoile à afficher dans le parallélogramme ---//
+    val_user = Select_Var_Entier(LIMITE_ETOILE_MAX, LIMITE_ETOILE_MIN);
 
 
     if(choix_user == CHOIX_GAUCHE)
@@ -325,49 +325,49 @@ void Selection_Sens_Paralelogramme(char choix_user)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Losange_Vide
-// EntrÃ©e / Sortie      : - / - /
+// Entrée / Sortie      : - / - /
 // Description          : permet d'afficher un "losange" vide
-// Date modfification   : le 20.11.2015
+// Date modfification   : le 23.10.2017
 // Remarque             :
 //----------------------------------------------------------------------------------//
 void Losange_Vide(void)
 {
-    //--- dÃ©claration de variable interne ---//
+    //--- déclaration de variable interne ---//
     int c_e, c_v, l;       // c_e = colonne etoile || c_v = colonne vide || l = ligne
     int nb_etoile;
 
-    nb_etoile = Select_Var_Entier();
+    nb_etoile = Select_Var_Entier(LIMITE_ETOILE_MAX, LIMITE_ETOILE_MIN);
 
-    //--- Partie supÃ©rieur du losange
+    //--- Partie supérieur du losange
     for(l = 0; l < nb_etoile; l++)
     {
         //--- premiere partie - ETOILE ---//
         for(c_e = l; c_e < nb_etoile ; c_e++)
             PRINT_ETOILE;
 
-        //--- deuxiÃ¨me partie - ESPACE ---//
+        //--- deuxième partie - ESPACE ---//
         for(c_v = 2 * (nb_etoile - (nb_etoile - l)); c_v > 0; c_v--)
             PRINT_ESPACE;
 
-         //--- troisiÃ¨me partie - ETOILE ---//
+         //--- troisième partie - ETOILE ---//
         for(c_e = (nb_etoile - l); c_e > 0 ; c_e--)
             PRINT_ETOILE;
 
         PRINT_SAUT_LIGNE;
     }
 
-    //--- partie infÃ©rieur du losange
+    //--- partie inférieur du losange
     for(l = 0; l < nb_etoile; l++)
     {
         //--- premiere partie - ETOILE ---//
         for(c_e = 0; c_e <= l ; c_e++)
             PRINT_ETOILE;
 
-        //--- deuxiÃ¨me partie - ESPACE ---//
+        //--- deuxième partie - ESPACE ---//
         for(c_v = 2 * (nb_etoile - (l + 1)); c_v > 0; c_v--)
             PRINT_ESPACE;
 
-        //--- troisiÃ¨me partie - ETOILE ---//
+        //--- troisième partie - ETOILE ---//
         for(c_e = nb_etoile - (nb_etoile - l); c_e >= 0; c_e--)
             PRINT_ETOILE;
 
@@ -377,49 +377,49 @@ void Losange_Vide(void)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Losange_Plein
-// EntrÃ©e / Sortie      : - / - /
+// Entrée / Sortie      : - / - /
 // Description          : permet d'afficher un "losange" plein
 // Date modfification   : le 29.12.2015
 // Remarque             :
 //----------------------------------------------------------------------------------//
 void Losange_Plein(void)
 {
-    //--- dÃ©claration de variable interne ---//
+    //--- déclaration de variable interne ---//
     int c_e, c_v, l;       // c_e = colonne etoile || c_v = colonne vide || l = ligne
     int nb_etoile;
 
-    nb_etoile = Select_Var_Entier();
+    nb_etoile = Select_Var_Entier(LIMITE_ETOILE_MAX, LIMITE_ETOILE_MIN);
 
-    //--- Partie supÃ©rieur du losange
+    //--- Partie supérieur du losange
     for(l = 0; l < nb_etoile; l++)
     {
         //--- premiere partie - ETOILE ---//
         for(c_e = l; c_e < nb_etoile ; c_e++)
             PRINT_ESPACE;
 
-        //--- deuxiÃ¨me partie - ESPACE ---//
+        //--- deuxième partie - ESPACE ---//
         for(c_v = 2 * (nb_etoile - (nb_etoile - l)); c_v > 0; c_v--)
             PRINT_ETOILE;
 
-         //--- troisiÃ¨me partie - ETOILE ---//
+         //--- troisième partie - ETOILE ---//
         for(c_e = (nb_etoile - l); c_e > 0 ; c_e--)
             PRINT_ESPACE;
 
         PRINT_SAUT_LIGNE;
     }
 
-    //--- partie infÃ©rieur du losange
+    //--- partie inférieur du losange
     for(l = 0; l < nb_etoile; l++)
     {
         //--- premiere partie - ETOILE ---//
         for(c_e = 0; c_e <= l ; c_e++)
             PRINT_ESPACE;
 
-        //--- deuxiÃ¨me partie - ESPACE ---//
+        //--- deuxième partie - ESPACE ---//
         for(c_v = 2 * (nb_etoile - (l + 1)); c_v > 0; c_v--)
             PRINT_ETOILE;
 
-        //--- troisiÃ¨me partie - ETOILE ---//
+        //--- troisième partie - ETOILE ---//
         for(c_e = nb_etoile - (nb_etoile - l); c_e >= 0; c_e--)
             PRINT_ESPACE;
 
@@ -429,7 +429,7 @@ void Losange_Plein(void)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Selection_Losange
-// EntrÃ©e / Sortie      : choix_user / - /
+// Entrée / Sortie      : choix_user / - /
 // Description          : permet d'appeler soit la fonction "losange vide" soit la
 //                        fonction "losange plein"
 // Date modfification   : le 05.01.2016
@@ -442,3 +442,21 @@ void Selection_Losange (char choix_user)
     else
         Losange_Vide();
 }
+
+/*
+//----------------------------------------------------------------------------------//
+// Nom de la fonction   : Simul_led
+// Entrée / Sortie      : choix_user / - /
+// Description          : permet d'appeler soit la fonction "losange vide" soit la
+//                        fonction "losange plein"
+// Date modfification   : le 05.01.2016
+// Remarque             :
+//----------------------------------------------------------------------------------//
+Simul_led()
+{
+    for(int l)
+    {
+        for()
+    }
+}
+*/

@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: help.c
 // Date de création 	: 23.09.2015
-// Date de modification : 30.09.2015
+// Date de modification : 23.10.2017
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -84,7 +84,7 @@ void Help_Printf(void)
 // Nom de la fonction   : Help_Loop
 // Entrée / Sortie      : - / - /
 // Description          : quelque exemple d'affichage avec des boucles itératives
-// Date modfification   : le 30.09.2015
+// Date modfification   : le 23.10.2017
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Help_Loop(void)
@@ -93,7 +93,7 @@ void Help_Loop(void)
     int i, val_user;
 
     //--- différences nombre itération (écriture différentes) ---//
-    val_user = Select_Var_Entier();
+    val_user = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
 
     //--- boucle for avec un test : x < y ---//
     PRINT_SAUT_LIGNE;

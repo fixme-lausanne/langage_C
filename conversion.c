@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: conversion.c
 // Date de création 	: 19.06.2015
-// Date de modification : 19.08.2015
+// Date de modification : 29.12.2018
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -20,6 +20,7 @@
 //--- librairie standart ---//
 #include <stdio.h>                  // entrée - sortie
 #include <string.h>
+#include <stdint.h>					// entier normalisé
 
 //--- librairie perso ---//
 #include "arithmetique.h"
@@ -117,5 +118,38 @@ void Astuce_ASCII(void)
     //--- affichage de valeur de certains caractère spéciaux ---//
     Conv_Char_Num(CHAR_RETOUR_CHARIOT);     // retiour chariot
     PRINT_SAUT_LIGNE;
+}
+
+//----------------------------------------------------------------------------------//
+// Nom de la fonction   : ConvDeciBinaire
+// Entrée / Sortie      : valDecimal / - / -
+// Description          : affiche la valeur binaire d'une valeur donnée entière
+// modification         : le 27.12.2018
+// Remarque             : -
+//----------------------------------------------------------------------------------//
+void ConvDeciBinaire(int valDecimal)
+{
+	//-- déclaration de variable --
+	int iteration = 0; 
+	int tbBinaire[100]; 
+
+	//-- boucle diviser tant que le quotient n'est pas à zéro --//
+	do
+	{
+		//-- algorithme convertion binaire --//
+		tbBinaire[iteration] = valDecimal % BASE_2;		// modulo de 2 
+		valDecimal /= BASE_2;							// division par 2 et remise à jour de valDecimal 
+		
+		//-- MAJ itération --//
+		iteration++; 
+
+	} while (valDecimal != 0);
+
+	//-- affichage du tableau --//
+	printf("la valeur binaire est de 0b "); 
+	for (iteration -= 1 ; iteration >= 0; iteration--)
+		printf("%d", tbBinaire[iteration]); 
+
+	PRINT_SAUT_LIGNE; 
 }
 

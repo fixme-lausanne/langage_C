@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------------//
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_display.c
-// Date de crÃ©ation 	:   06.11.2015
-// Date de modification : 	07.01.2016
+// Date de création 	:   06.11.2015
+// Date de modification : 	23.10.2017
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -12,14 +12,14 @@
 // Remarques			:   lien pour la table ASCII :
 //                          http://www.asciitable.com/
 //                          lien pour la saisie de clavier avec getc & getchar pour ne pas
-//                          avoir des erreurs d'interprÃ©tation
+//                          avoir des erreurs d'interprétation
 //                          http://fr.openclassrooms.com/informatique/cours/utiliser-les-bonnes-fonctions-d-entree
-//                          lien vers diffÃ©rents
+//                          lien vers différents
 //                          http://fr.wikipedia.org/wiki/String.h
 //----------------------------------------------------------------------------------//
 
 //--- librairie standart ---//
-#include <stdio.h>                  // entrÃ©e - sortie
+#include <stdio.h>                  // entrée - sortie
 #include <string.h>
 
 //--- librairie perso ---//
@@ -28,7 +28,7 @@
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Template_Choix_Menu_Display
-// EntrÃ©e / Sortie      : - / - /
+// Entrée / Sortie      : - / - /
 // Description          : affiche le choix du menu "Display"
 // Date modfification   : le 06.11.2015
 // Remarque             : -
@@ -51,26 +51,26 @@ void Template_Choix_Menu_Display(void)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Template_Display_Menu_Display
-// EntrÃ©e / Sortie      : choix_menu / - /
+// Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe -> ici display
-// Date modfification   : le 07.01.2016
+// Date modfification   : le 23.10.2017
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_Display(char choix_menu)
 {
-    //--- dÃ©claration de variable interne ---//
+    //--- déclaration de variable interne ---//
     char i, choix_HB, choix_GD, choix_PV;
     int choix_val;
 
-    //--- affiche une ligne entiÃ¨re d'Ã©toile ---//
+    //--- affiche une ligne entière d'étoile ---//
     PRINT_SAUT_LIGNE;
     Template_Menu_Ligne();
 
-    //--- boucle pour afficher x caractÃ¨re sur une ligne ---//
+    //--- boucle pour afficher x caractère sur une ligne ---//
     for(i = 0; i < 3; i++)
         printf("*");
 
-    //--- pour l'esthÃ©tique afficher un espace avant le mots "menu" ---/
+    //--- pour l'esthétique afficher un espace avant le mots "menu" ---/
     PRINT_ESPACE;
     PRINT_M_MENU;
 
@@ -90,7 +90,7 @@ void Template_Display_Menu_Display(char choix_menu)
             Template_Menu_Ligne();
             PRINT_SAUT_LIGNE;
             PRINT_SAUT_LIGNE;
-            choix_val = Select_Var_Entier();
+            choix_val = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
             Carre(choix_val);
         break;
 

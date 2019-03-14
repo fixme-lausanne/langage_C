@@ -1,61 +1,67 @@
 //-----------------------------------------------------------------------------------//
 // Nom du projet 		    : Langage_C_fixme
 // Nom du fichier 		    : display.h
-// Date de crÃ©ation 	    : 25.02.2015
-// Date de modification     : 13.03.2019
+// Date de création 	    : 25.02.2015
+// Date de modification     : 14.03.2019
 //
 // Auteur 				    : Philou (Ph. Bovey)
 //
 // Description              : fichier de type header file pour toutes les fonctions
-//                            liÃ©es Ã  l'afficahge
+//                            liées à l'afficahge
 //
 //
 // Remarques 			    : lien pour la table ASCII :
 // 						    -> http://www.asciitable.com/
 // 						     lien pour la saisie de clavier avec getc & getchar pour ne pas
-//                           avoir des erreurs d'interprÃ©tation
+//                           avoir des erreurs d'interprétation
 // 						    -> http://fr.openclassrooms.com/informatique/cours/utiliser-les-bonnes-fonctions-d-entree
-// 						     lien vers diffÃ©rents
+// 						     lien vers différents
 // 						    -> http://fr.wikipedia.org/wiki/String.h
 //----------------------------------------------------------------------------------//
 #ifndef DISPLAY_H_INCLUDED
 #define DISPLAY_H_INCLUDED
-//--- librairie associÃ©e ---//
+//--- librairie associée ---//
 
 //-- versionning --//
-#define CODE_BLOCK
-//#define VISUAL_STUDIO
+//#define CODE_BLOCK
+#define VISUAL_STUDIO
 
-//--- constante ou dÃ©finition ---//
-//-- caractÃ¨re spÃ©cifique --//
-#define CHOIX_BAS               66          // reprÃ©sente B en caractÃ¨re
-#define CHOIX_DROITE            68          // reprÃ©sente D en caractÃ¨re
-#define CHOIX_ENTIER            73          // reprÃ©sente I en caractÃ¨re
-#define CHOIX_EXIT              69          // reprÃ©sente E en caractÃ¨re
-#define CHOIX_FLOTTANT          70          // reprÃ©sente F en caractÃ¨re
-#define CHOIX_GAUCHE            71          // reprÃ©sente G en caractÃ¨re
-#define CHOIX_HAUT              72          // reprÃ©sente H en caractÃ¨re
-#define CHOIX_MENU              77          // reprÃ©sente M en caractÃ¨re
-#define CHOIX_MENU_PRINCIPAL    80          // reprÃ©sente P en caractÃ¨re
-#define CHOIX_PLEINS            80          // reprÃ©sente P en caractÃ¨re
-#define CHOIX_VIDE              86          // reprÃ©sente V en caractÃ¨re
-#define MAX_CARA                80          // largeur d'une fenÃªtre DOS
+//--- constante ou définition ---//
+//-- caractère spécifique --//
+#define CHOIX_BAS               66          // représente B en caractère
+#define CHOIX_DROITE            68          // représente D en caractère
+#define CHOIX_ENTIER            73          // représente I en caractère
+#define CHOIX_EXIT              69          // représente E en caractère
+#define CHOIX_FLOTTANT          70          // représente F en caractère
+#define CHOIX_GAUCHE            71          // représente G en caractère
+#define CHOIX_HAUT              72          // représente H en caractère
+#define CHOIX_MENU              77          // représente M en caractère
+#define CHOIX_MENU_PRINCIPAL    80          // représente P en caractère
+#define CHOIX_PLEINS            80          // représente P en caractère
+#define CHOIX_VIDE              86          // représente V en caractère
+#define LIMITE_ETOILE_MIN		1			// nb d'étoile min que l'on peut afficher
+#define LIMITE_ETOILE_MAX		15			// nb d'étoile min que l'on peut afficher
+#define LIMITE_NB_MAX			10			// limite d'un nombre entier 
+#define LIMITE_NB_MIN			-10			// limite d'un nombre entier 
+#define MAX_CARA                80          // largeur d'une fenêtre DOS
 
 //-- gestion de message user --//
-#define DELETE_SCREEN           system("cls")
-#define PRINT_SAUT_LIGNE        printf("\n")
-#define PRINT_ESPACE            printf(" ")
-#define PRINT_ETOILE            printf("*");
-#define PRINT_M_MENU            printf("MENU : ")
-#define PRINT_SELECTION_MENU    printf("Veuillez Selectionner votre Menu : ")
-#define PRINT_SELECTION_CHAR    printf("Veuillez taper un caractere :")
-#define PRINT_SELECTION_CHOIX   printf("Veuillez Selectionner votre choix : ")
-#define PRINT_SELECTION_GD      printf("Veuillez choisir entre Gauche[G] et Droite[D] : ")
-#define PRINT_SELECTION_HB      printf("Veuillez choisir entre Haut[H] et Bas[B] : ")
-#define PRINT_SELECTION_NB      printf("Indiquer un nombre : ")
-#define PRINT_SELECTION_PV      printf("Veuillez choisir entre Plein [P] et Vide [V] : ")
-#define PRINT_SELECTION_INT     printf("Voulez-vous travailler en entier   - taper 'I' ")
-#define PRINT_SELECTION_FLOAT   printf("Voulez-vous travailler en flottant - taper 'F' ")
+#define DELETE_SCREEN				system("cls")
+#define PRINT_SAUT_LIGNE			printf("\n")
+#define PRINT_ESPACE				printf(" ")
+#define PRINT_ETOILE				printf("*");
+#define PRINT_M_MENU				printf("MENU : ")
+#define PRINT_SELECTION_ABSCISSE	printf("Entrer Valeur entiere entre %d et %d", LIMITE_AXE_X_MIN, LIMITE_AXE_X_MAX)
+#define PRINT_SELECTION_CHAR		printf("Veuillez taper un caractere :")
+#define PRINT_SELECTION_CHOIX		printf("Veuillez Selectionner votre choix : ")
+#define PRINT_SELECTION_FLOAT		printf("Voulez-vous travailler en flottant - taper 'F' ")
+#define PRINT_SELECTION_GD			printf("Veuillez choisir entre Gauche[G] et Droite[D] : ")
+#define PRINT_SELECTION_HB			printf("Veuillez choisir entre Haut[H] et Bas[B] : ")
+#define PRINT_SELECTION_INT			printf("Voulez-vous travailler en entier   - taper 'I' ")
+#define PRINT_SELECTION_MENU		printf("Veuillez Selectionner votre Menu : ")
+#define PRINT_SELECTION_NB			printf("Indiquer un nombre : ")
+#define PRINT_SELECTION_ORDONNEE	printf("Entrer Valeur entiere entre %d et %d", LIMITE_AXE_Y_MIN, LIMITE_AXE_Y_MAX)
+#define PRINT_SELECTION_PV			printf("Veuillez choisir entre Plein [P] et Vide [V] : ")
 
 #define NAME_M_ADITION                  "ADITION"
 #define NAME_M_AFFICHAGE                "AFFICHAGE"
@@ -64,8 +70,10 @@
 #define NAME_M_ASTUCE_INCR              "ASTUCE INCREMENTATION & DECREMENTATION"
 #define NAME_M_ASTUCE_CONV_CHAR_NUM     "ASTUCE CONVERSION CARACTERE NUMERIQUE - TABLE"
 #define NAME_M_ASTUCE_LOOP              "ASTUCE BOUCLE"
+#define NAME_M_CALCUL_SEG_AB			"CALCUL SEGMENT POINT_A(x,y) - POINT_B(x,y)"
 #define NAME_M_CONV                     "CONVERSIONS"
 #define NAME_M_CONV_CHAR_NUM            "CONVERSION CARACTERE EN NUM (DEC - HEXA)"
+#define NAME_M_CONV_DECIMAL_BINAIRE		"CONVERSION DECIMAL BINAIRE"
 #define NAME_M_CONV_NUM_CHAR            "CONVERSION NUMERIQUE EN CARACTERE"
 #define NAME_M_CONV_NUM_OCT_HEX         "CONVERSION NUMERIQUE EN OCTAL - HEXA"
 #define NAME_M_DIVISION                 "DIVISION"
@@ -78,49 +86,49 @@
 #define NAME_M_PRINICIPAL               "PRINCIPAL"
 #define NAME_M_SOUSTRACTION             "SOUSTRACTION"
 
-//--- dÃ©claration de variable global ---//
+//--- déclaration de variable global ---//
 extern char var_retour;
 
-//--- dÃ©claration de prototype ---//
-//--- liÃ©e au fichier template_menu.c ---//
+//--- déclaration de prototype ---//
+//--- liée au fichier template_menu.c ---//
 void Template_Menu_Ligne(void);                         //-> affiche un trait d'*
-void Template_Display_Menu(char choix_menu);            //-> affiche le titre dans lequel se trouve le user et sÃ©lectionne le menu choisi
+void Template_Display_Menu(char choix_menu);            //-> affiche le titre dans lequel se trouve le user et sélectionne le menu choisi
 void Template_Choix_Menu_Principal(void);               //-> affiche le menu principal pour le user
 
-//--- liÃ©e au fichier template_menu_arithm.c ---//
-void Template_Display_Menu_Arithm(char choix_menu);     //-> affiche le titre dans lequel se trouve le user et sÃ©lectionne le menu choisi
+//--- liée au fichier template_menu_arithm.c ---//
+void Template_Display_Menu_Arithm(char choix_menu);     //-> affiche le titre dans lequel se trouve le user et sélectionne le menu choisi
 void Template_Choix_Menu_Arithmetique(void);            //-> affiche le menu arithmetique
-void Template_Choix_Menu_OP_Simple(void);               //-> affiche le menu opÃ©ration simple
+void Template_Choix_Menu_OP_Simple(void);               //-> affiche le menu opération simple
 void Template_Choix_Menu_Conversion(void);              //-> affiche le menu Conversion
-void Template_Display_Menu_OP_Simple(char choix_menu);  //-> affiche le menu concernant les oÃ©rations simples
-void Template_Display_Menu_Conversion(char choix_menu); //-> affiche le menu concernant diffÃ©rentes conversions
+void Template_Display_Menu_OP_Simple(char choix_menu);  //-> affiche le menu concernant les oérations simples
+void Template_Display_Menu_Conversion(char choix_menu); //-> affiche le menu concernant différentes conversions
 
-//--- liÃ©e au fichier template_menu_display.c ---//
-void Template_Choix_Menu_Display(void);                 //-> affichage de diffÃ©rents theme du menu display
-void Template_Display_Menu_Display(char choix_menu);    //-> affiche le titre dans lequel se trouve le user et sÃ©lectionne le menu choisi
+//--- liée au fichier template_menu_display.c ---//
+void Template_Choix_Menu_Display(void);                 //-> affichage de différents theme du menu display
+void Template_Display_Menu_Display(char choix_menu);    //-> affiche le titre dans lequel se trouve le user et sélectionne le menu choisi
 
-//--- liÃ©e au fichier selection_user.c ---//
-char Selection_Menus(char choix_selection_msg);         //-> permet de rÃ©cuprer une valeur entrer par l'utilisateur
-char Select_Var_Cara(void);                             //-> rÃ©cupÃ¨re un caractÃ¨re fournis par un utilisateur
-char Select_Option(void);                               //-> permet Ã  l'utilisteur de choisir entre deux options
-float Select_Var_Flottant(void);                        //-> rÃ©cupÃ¨re une chaine de caractÃ¨re et la transforme en floattant
-int Select_Var_Entier(void);                            //-> rÃ©cupÃ¨re une chÃ¢ine de chaÃ®ne de caractÃ¨re et le transforme en entier
+//--- liée au fichier selection_user.c ---//
+char Selection_Menus(char choix_selection_msg);         //-> permet de récuprer une valeur entrer par l'utilisateur
+char Select_Var_Cara(void);                             //-> récupère un caractère fournis par un utilisateur
+char Select_Option(void);                               //-> permet à l'utilisteur de choisir entre deux options
+float Select_Var_Flottant(void);                        //-> récupère une chaine de caractère et la transforme en floattant
+int Select_Var_Entier(int limiteMax, int limiteMin);    //-> récupère une châine de chaîne de caractère et le transforme en entier avec controle de limite 
 
-//--- liÃ© au fichier help.c ---//
+//--- lié au fichier help.c ---//
 void Help_Printf(void);                                 //-> affiche une aide sur le printf
-void Help_Loop(void);                                   //-> effect visuel avec des boucles itÃ©ratives
+void Help_Loop(void);                                   //-> effect visuel avec des boucles itératives
 
-//--- liÃ©e au fichier affichage.c ---//
+//--- liée au fichier affichage.c ---//
 void Triangle_Etoile_AGB(int nb_etoile);                            // permet d'afficher un triangle selon les datas du user
 void Triangle_Etoile_AGH(int nb_etoile);
 void Triangle_Etoile_ADB(int nb_etoile);
 void Triangle_Etoile_ADH(int nb_etoile);
-void Carre(int val_user);                                           // afficher un carrÃ© plein d'Ã©toiles
+void Carre(int val_user);                                           // afficher un carré plein d'étoiles
 void Parallelogramme_AG(int val_user);                              // affiche un parallelogramme avec l'angle a gauche
 void Parallelogramme_AD(int val_user);                              // affiche un parallelogramme avec l'angle a droite
 void Choix_Emplacement_Triangle(char choix_HB, char choix_GD);      // definit quel dessin de traingle afficher selon le user
-void Losange_Vide(void);                                            // affiche un losange entourÃ© d'Ã©toile
-void Losange_Plein(void);                                           // affiche un losange remplit d'Ã©toile
+void Losange_Vide(void);                                            // affiche un losange entouré d'étoile
+void Losange_Plein(void);                                           // affiche un losange remplit d'étoile
 void Selection_Losange (char choix_user);                           // selectionne un losange vide ou plein
 void Selection_Sens_Paralelogramme(char choix_user);                // choix pour l'affichage d'un parallelogramme (angle droite ou gauche)
 

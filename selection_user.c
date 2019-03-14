@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: selection_user.c
 // Date de création 	: 16.04.2015
-// Date de modification : 19.06.2015
+// Date de modification : 23.10.2017
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -26,6 +26,8 @@
 #include "display.h"
 
 //--- constante ou définition ---//
+#define _CRT_NONSTDC_NO_WARNINGS
+
 
 
 //----------------------------------------------------------------------------------//
@@ -35,7 +37,7 @@
 //                        M : affichage d'un message concernant un menu
 //                        C : affichage d'un message concernant un choix de sous menu
 //                        V : affichage d'un message concernant une valeur
-// modification         : le 19.06.2015
+// modification         : le 23.10.2017
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 char Selection_Menus(char choix_selection_msg)
@@ -57,7 +59,7 @@ char Selection_Menus(char choix_selection_msg)
         break;
 
         case 'V':
-            var_retour = Select_Var_Entier();
+            var_retour = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
         break;
     }
     return var_retour;
@@ -126,22 +128,34 @@ char Select_Option(void)
 
 //----------------------------------------------------------------------------------//
 // Nom de la fonction   : Select_Var_Entier
-// Entrée / Sortie      : - / val_retour
+// Entrée / Sortie      : limiteMax, limiteMin / val_retour
 // Description          : récuperation d'une chaîne de caractère en la transformant
-//                        en entier
-// modification         : le 21.05.2015
-// Remarque             : -
+//                        en entier avec contrôle de limites (min et max)
+// modification         : le 23.10.2017
+// Remarque             : 
 //----------------------------------------------------------------------------------//
-int Select_Var_Entier(void)
+int Select_Var_Entier(int limiteMax, int limiteMin)
 {
     //--- déclaration de variable interne ---//
-    int val_retour;
+	char testPositif = 0;		// 0 -> NOT OK - 1 -> OK
+	int val_retour;
 
     //--- message de sélection ---//
     PRINT_SELECTION_NB;
 
-    //--- fonction pour la lire la saisie d'un chaîne de caractère ---//
-    scanf("%d", &val_retour);
+	//-- boucle pour tester si valeur est correctes ou non --// 
+	do
+	{
+		//--- fonction pour la lire la saisie d'un chaîne de caractère ---//
+		scanf_s("%d", &val_retour);
+
+		//-- test si valeur est dans les limites --//
+		if ((val_retour < limiteMax) && (val_retour > limiteMin))
+			testPositif = 1;
+		else
+			testPositif = 0; 
+
+	} while (testPositif == 0);
 
     return val_retour;
 }
@@ -163,7 +177,7 @@ float Select_Var_Flottant(void)
     PRINT_SELECTION_NB;
 
     //--- fonction pour la lire la saisie d'un chaîne de caractère ---//
-    scanf("%f", &val_retour);
+    scanf_s("%f", &val_retour);
 
     return val_retour;
 }
