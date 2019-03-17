@@ -2,7 +2,7 @@
 // Nom du projet 		    : Langage_C_fixme
 // Nom du fichier 		    : display.h
 // Date de création 	    : 25.02.2015
-// Date de modification     : 14.03.2019
+// Date de modification     : 17.03.2019
 //
 // Auteur 				    : Philou (Ph. Bovey)
 //
@@ -23,8 +23,8 @@
 //--- librairie associée ---//
 
 //-- versionning --//
-//#define CODE_BLOCK
-#define VISUAL_STUDIO
+#define CODE_BLOCK
+//#define VISUAL_STUDIO
 
 //--- constante ou définition ---//
 //-- caractère spécifique --//
@@ -41,8 +41,8 @@
 #define CHOIX_VIDE              86          // représente V en caractère
 #define LIMITE_ETOILE_MIN		1			// nb d'étoile min que l'on peut afficher
 #define LIMITE_ETOILE_MAX		15			// nb d'étoile min que l'on peut afficher
-#define LIMITE_NB_MAX			10			// limite d'un nombre entier 
-#define LIMITE_NB_MIN			-10			// limite d'un nombre entier 
+#define LIMITE_NB_MAX			10			// limite d'un nombre entier
+#define LIMITE_NB_MIN			-10			// limite d'un nombre entier
 #define MAX_CARA                80          // largeur d'une fenêtre DOS
 
 //-- gestion de message user --//
@@ -60,6 +60,7 @@
 #define PRINT_SELECTION_INT			printf("Voulez-vous travailler en entier   - taper 'I' ")
 #define PRINT_SELECTION_MENU		printf("Veuillez Selectionner votre Menu : ")
 #define PRINT_SELECTION_NB			printf("Indiquer un nombre : ")
+#define PRINT_SELECTION_NEW_NB		printf("Indiquer un nouveau nombre : ")
 #define PRINT_SELECTION_ORDONNEE	printf("Entrer Valeur entiere entre %d et %d", LIMITE_AXE_Y_MIN, LIMITE_AXE_Y_MAX)
 #define PRINT_SELECTION_PV			printf("Veuillez choisir entre Plein [P] et Vide [V] : ")
 
@@ -85,6 +86,7 @@
 #define NAME_M_OP_SIMPLE                "OPERATION SIMPLE"
 #define NAME_M_PRINICIPAL               "PRINCIPAL"
 #define NAME_M_SOUSTRACTION             "SOUSTRACTION"
+#define NAME_M_VECTEUR                  "VECTEUR"
 
 //--- déclaration de variable global ---//
 extern char var_retour;
@@ -108,11 +110,13 @@ void Template_Choix_Menu_Display(void);                 //-> affichage de différ
 void Template_Display_Menu_Display(char choix_menu);    //-> affiche le titre dans lequel se trouve le user et sélectionne le menu choisi
 
 //--- liée au fichier selection_user.c ---//
-char Selection_Menus(char choix_selection_msg);         //-> permet de récuprer une valeur entrer par l'utilisateur
-char Select_Var_Cara(void);                             //-> récupère un caractère fournis par un utilisateur
-char Select_Option(void);                               //-> permet à l'utilisteur de choisir entre deux options
-float Select_Var_Flottant(void);                        //-> récupère une chaine de caractère et la transforme en floattant
-int Select_Var_Entier(int limiteMax, int limiteMin);    //-> récupère une châine de chaîne de caractère et le transforme en entier avec controle de limite 
+char Selection_Menus(char choix_selection_msg);                     //-> permet de récuprer une valeur entrer par l'utilisateur
+char Select_Option(void);                                           //-> permet à l'utilisteur de choisir entre deux options
+char Select_Var_Cara(void);                                         //-> récupère un caractère fournis par un utilisateur
+float SelectValFlottantAvecLimite(float limitMax, float limitMin);  //-> récupère une chaine de caractère et la transforme en floattant en contrôlant des limites
+float Select_Var_Flottant(void);                                    //-> récupère une chaine de caractère et la transforme en floattant
+int SelectValEntierSansLimite(void);                                //-> récupère une châine de chaîne de caractère et le transforme en entier
+int Select_Var_Entier(int limiteMax, int limiteMin);                //-> récupère une châine de chaîne de caractère et le transforme en entier avec controle de limite
 
 //--- lié au fichier help.c ---//
 void Help_Printf(void);                                 //-> affiche une aide sur le printf

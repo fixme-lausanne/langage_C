@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_arithm.c
 // Date de création 	:   16.04.2015
-// Date de modification : 	14.03.2019
+// Date de modification : 	17.03.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -64,6 +64,8 @@ void Template_Choix_Menu_OP_Simple(void)
     printf("[3] %s", NAME_M_MULTIPLICATION);
     PRINT_SAUT_LIGNE;
     printf("[4] %s", NAME_M_DIVISION);
+    PRINT_SAUT_LIGNE;
+    printf("[5] %s", NAME_M_VECTEUR);
     PRINT_SAUT_LIGNE;
     printf("[A] %s", NAME_M_ASTUCE_INCR);
     PRINT_SAUT_LIGNE;
@@ -186,7 +188,7 @@ void Template_Display_Menu_Arithm(char choix_menu)
 // Entrée / Sortie      : choix_menu / - /
 // Description          : affiche le menu dans lequel on se situe avec les
 //                        differentes options
-// Date modfification   : le 30.09.2015
+// Date modfification   : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Display_Menu_OP_Simple(char choix_menu)
@@ -246,6 +248,14 @@ void Template_Display_Menu_OP_Simple(char choix_menu)
             Template_Menu_Ligne();
             PRINT_SAUT_LIGNE;
             Division();
+        break;
+
+        case '5':
+            printf("%s", NAME_M_VECTEUR);
+            PRINT_SAUT_LIGNE;
+            Template_Menu_Ligne();
+            PRINT_SAUT_LIGNE;
+            Calculs_Segment();
         break;
 
         case 'A':

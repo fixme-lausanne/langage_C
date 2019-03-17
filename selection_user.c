@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: selection_user.c
 // Date de création 	: 16.04.2015
-// Date de modification : 23.10.2017
+// Date de modification : 17.03.2019
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -21,6 +21,7 @@
 //--- librairie standart ---//
 #include <stdio.h>                  // entrée - sortie
 #include <string.h>
+#include <stdint.h>                 // type entier standardisé
 
 //--- librairie perso ---//
 #include "display.h"
@@ -131,8 +132,8 @@ char Select_Option(void)
 // Entrée / Sortie      : limiteMax, limiteMin / val_retour
 // Description          : récuperation d'une chaîne de caractère en la transformant
 //                        en entier avec contrôle de limites (min et max)
-// modification         : le 23.10.2017
-// Remarque             : 
+// modification         : le 17.03.2019
+// Remarque             :
 //----------------------------------------------------------------------------------//
 int Select_Var_Entier(int limiteMax, int limiteMin)
 {
@@ -143,21 +144,54 @@ int Select_Var_Entier(int limiteMax, int limiteMin)
     //--- message de sélection ---//
     PRINT_SELECTION_NB;
 
-	//-- boucle pour tester si valeur est correctes ou non --// 
+	//-- boucle pour tester si valeur est correctes ou non --//
 	do
 	{
 		//--- fonction pour la lire la saisie d'un chaîne de caractère ---//
-		scanf_s("%d", &val_retour);
-
+		//-- pour VS --
+		#ifdef VISUAL_STUDIO
+            scanf_s("%d", &val_retour);
+        #else
+            scanf("%d", &val_retour);
+        #endif // VISUAL_STUDIO
 		//-- test si valeur est dans les limites --//
 		if ((val_retour < limiteMax) && (val_retour > limiteMin))
 			testPositif = 1;
 		else
-			testPositif = 0; 
-
+        {
+            testPositif = 0;
+            PRINT_SELECTION_NEW_NB;
+        }
 	} while (testPositif == 0);
 
     return val_retour;
+}
+
+//----------------------------------------------------------------------------------//
+// Nom de la fonction   : SelectValEntierSansLimite
+// Entrée / Sortie      : / val_retour
+// Description          : récuperation d'une chaîne de caractère en la transformant
+//                        en entier sans contrôle de limites -> mode console
+// modification         : le 17.03.2019
+// Remarque             :
+//----------------------------------------------------------------------------------//
+int SelectValEntierSansLimite(void)
+{
+    //--- déclaration de variable interne ---//
+	int valRetour;
+
+    //--- message de sélection ---//
+    PRINT_SELECTION_NB;
+
+    //--- fonction pour la lire la saisie d'un chaîne de caractère ---//
+    //-- pour VS --
+	#ifdef VISUAL_STUDIO
+        scanf_s("%d", &val_retour);
+    #else
+        scanf("%d", &valRetour);
+    #endif // VISUAL_STUDIO
+
+    return valRetour;
 }
 
 //----------------------------------------------------------------------------------//
@@ -165,7 +199,7 @@ int Select_Var_Entier(int limiteMax, int limiteMin)
 // Entrée / Sortie      : - / val_retour
 // Description          : récuperation d'une chaîne de caractère en la transformant
 //                        en flottant
-// modification         : le 08.06.2015
+// modification         : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 float Select_Var_Flottant(void)
@@ -177,7 +211,53 @@ float Select_Var_Flottant(void)
     PRINT_SELECTION_NB;
 
     //--- fonction pour la lire la saisie d'un chaîne de caractère ---//
-    scanf_s("%f", &val_retour);
+    //-- pour VS --
+    #ifdef VISUAL_STUDIO
+        scanf_s("%f", &val_retour);
+    #else
+        scanf("%f", &val_retour);
+    #endif
 
     return val_retour;
+}
+
+//----------------------------------------------------------------------------------//
+// Nom de la fonction   : SelectValFlottantAvecLimite
+// Entrée / Sortie      : limiteMax, limiteMin / val_retour
+// Description          : récuperation d'une chaîne de caractère en la transformant
+//                        en flottant avec contrôle de limite
+// modification         : le 17.03.2019
+// Remarque             : -
+//----------------------------------------------------------------------------------//
+float SelectValFlottantAvecLimite(float limitMax, float limitMin)
+{
+    //--- déclaration de variable interne ---//
+	int8_t flagLimit = 0;		// 0 -> OK - 1 -> NOT OK
+	float valRetour;
+
+    //--- message de sélection ---//
+    PRINT_SELECTION_NB;
+
+	//-- boucle pour tester si valeur est correctes ou non --//
+	do
+	{
+		//--- fonction pour la lire la saisie d'un chaîne de caractère ---//
+		//-- pour VS --
+		#ifdef VISUAL_STUDIO
+            scanf_s("%d", &val_retour);
+        #else
+            scanf("%f", &valRetour);
+        #endif // VISUAL_STUDIO
+
+		//-- test si valeur est dans les limites --//
+		if ((valRetour < limitMax) && (valRetour > limitMin))
+			flagLimit = 0;
+		else
+        {
+            flagLimit = 1;
+            PRINT_SELECTION_NEW_NB;
+        }
+	} while (flagLimit != 0);
+
+    return valRetour;
 }

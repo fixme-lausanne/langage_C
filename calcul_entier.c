@@ -2,7 +2,7 @@
 // Nom du projet 		: Langage_C_fixme
 // Nom du fichier 		: calcul_entier.c
 // Date de création 	: 09.04.2015
-// Date de modification : 23.10.2017
+// Date de modification : 17.03.2019
 //
 // Auteur 				: Philou (Ph. Bovey)
 //
@@ -21,6 +21,7 @@
 #include <stdio.h>                  // entrée - sortie
 #include <string.h>
 #include <stdint.h>					// type normalisé
+#include <math.h>                   // fonction mathématique normalisé
 
 //--- librairie perso ---//
 #include "arithmetique.h"
@@ -77,8 +78,8 @@ void Astuce_Calcul(void)
 // Nom de la fonction   : Addition
 // Entrée / Sortie      : - / - / -
 // Description          : Addition de deux variables + affichage en mode entier en
-//                        flottant
-// modification         : le 09.09.2015
+//                        flottant avec 3 chiffres significatifs
+// modification         : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Addition(void)
@@ -91,15 +92,16 @@ void Addition(void)
     var_f_2 = Select_Var_Flottant();
     var_i_1 = (int)var_f_1;             //caster une valeur de flottante en valeur entière
     var_i_2 = (int)var_f_2;             //caster une valeur de flottante en valeur entière
+
     PRINT_SAUT_LIGNE;
     PRINT_SAUT_LIGNE;
     printf("adition mode affichage entier :        X + Y  = %d + %d = %d",var_i_1, var_i_2, (var_i_1 + var_i_2));
     PRINT_SAUT_LIGNE;
-    printf("meme addition - ecriture differente :  X += Y ou X = X + Y: %d",var_i_1 += var_i_2);
+    printf("meme addition - ecriture differente :  X += Y ou X = X + Y = %d",var_i_1 += var_i_2);
     PRINT_SAUT_LIGNE;
-    printf("adition mode affichage flottant :      X + Y  = %f + %f = %f",var_f_1, var_f_2, (var_f_1 + var_f_2));
+    printf("adition mode affichage flottant :      X + Y  = %.3f + %.3f = %.3f",var_f_1, var_f_2, (var_f_1 + var_f_2));
     PRINT_SAUT_LIGNE;
-    printf("meme addition - ecriture differente :  X += Y ou X = X + Y: %f",var_f_1 += var_f_2);
+    printf("meme addition - ecriture differente :  X += Y ou X = X + Y = %.3f",var_f_1 += var_f_2);
     //--- réinitialiser la valeur de X ---//
     var_f_1 -= var_f_2;
     PRINT_SAUT_LIGNE;
@@ -110,8 +112,8 @@ void Addition(void)
 // Nom de la fonction   : Soustraction
 // Entrée / Sortie      : choix_option / - / -
 // Description          : Soustraction de deux variable + affichage en mode entier en
-//                        flottant
-// modification         : le 09.09.2015
+//                        flottant avec 3 chiffres significatifs
+// modification         : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Soustraction(void)
@@ -124,15 +126,16 @@ void Soustraction(void)
     var_f_2 = Select_Var_Flottant();
     var_i_1 = (int)var_f_1;             //caster une valeur de flottante en valeur entière
     var_i_2 = (int)var_f_2;             //caster une valeur de flottante en valeur entière
+
     PRINT_SAUT_LIGNE;
     PRINT_SAUT_LIGNE;
     printf("soustraction mode affichage entier :      X - Y  = %d - %d = %d",var_i_1, var_i_2, (var_i_1 - var_i_2));
     PRINT_SAUT_LIGNE;
-    printf("meme soustraction - ecriture differente : X -= Y ou X = X - Y: %d",var_i_1 -= var_i_2);
+    printf("meme soustraction - ecriture differente : X -= Y ou X = X - Y = %d",var_i_1 -= var_i_2);
     PRINT_SAUT_LIGNE;
-    printf("soustraction mode affichage flottant :    X - Y  = %f - %f = %f",var_f_1, var_f_2, (var_f_1 - var_f_2));
+    printf("soustraction mode affichage flottant :    X - Y  = %.3f - %.3f = %.3f",var_f_1, var_f_2, (var_f_1 - var_f_2));
     PRINT_SAUT_LIGNE;
-    printf("meme soustraction - ecriture differente : X -= Y ou X = X - Y: %f",var_f_1 -= var_f_2);
+    printf("meme soustraction - ecriture differente : X -= Y ou X = X - Y = %.3f",var_f_1 -= var_f_2);
     //--- réinitialiser la valeur de X ---//
     var_f_1 += var_f_2;
     PRINT_SAUT_LIGNE;
@@ -143,8 +146,8 @@ void Soustraction(void)
 // Nom de la fonction   : Multiplication
 // Entrée / Sortie      : choix_option / - / -
 // Description          : Multiplication de deux variables + affichage en mode entier en
-//                        flottant
-// modification         : le 09.09.2015
+//                        flottant avec 3 chiffres significatifs
+// modification         : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Multiplication(void)
@@ -157,15 +160,16 @@ void Multiplication(void)
     var_f_2 = Select_Var_Flottant();
     var_i_1 = (int)var_f_1;             //caster une valeur de flottante en valeur entière
     var_i_2 = (int)var_f_2;             //caster une valeur de flottante en valeur entière
+
     PRINT_SAUT_LIGNE;
     PRINT_SAUT_LIGNE;
     printf("multiplication mode affichage emtier :      X * Y  = %d * %d = %d",var_i_1, var_i_2, (var_i_1 * var_i_2));
     PRINT_SAUT_LIGNE;
-    printf("meme multiplication - ecriture differente : X *= Y ou X = X * Y: %d",var_i_1 *= var_i_2);
+    printf("meme multiplication - ecriture differente : X *= Y ou X = X * Y = %d",var_i_1 *= var_i_2);
     PRINT_SAUT_LIGNE;
-    printf("multiplication en mode affichage flottant : X * Y  = %f * %f = %f",var_f_1, var_f_2, (var_f_1 * var_f_2));
+    printf("multiplication en mode affichage flottant : X * Y  = %.3f * %.3f = %.3f",var_f_1, var_f_2, (var_f_1 * var_f_2));
     PRINT_SAUT_LIGNE;
-    printf("meme multiplication - ecriture differente : X *= Y ou X = X * Y: %f",var_f_1 *= var_f_2);
+    printf("meme multiplication - ecriture differente : X *= Y ou X = X * Y = %.3f",var_f_1 *= var_f_2);
     //--- réinitialiser la valeur de X ---//
     var_f_1 /= var_f_2;
     PRINT_SAUT_LIGNE;
@@ -176,8 +180,8 @@ void Multiplication(void)
 // Nom de la fonction   : Division
 // Entrée / Sortie      : choix_option / - / -
 // Description          : Division de deux variables + affichage en mode entier en
-//                        flottant
-// modification         : le 09.09.2015
+//                        flottant avec 3 chiffres significatifs
+// modification         : le 17.03.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Division(void)
@@ -190,15 +194,16 @@ void Division(void)
     var_f_2 = Select_Var_Flottant();
     var_i_1 = (int)var_f_1;             //caster une valeur de flottante en valeur entière
     var_i_2 = (int)var_f_2;             //caster une valeur de flottante en valeur entière
+
     PRINT_SAUT_LIGNE;
     PRINT_SAUT_LIGNE;
     printf("division mode affichage entier :          X / Y  = %d / %d = %d",var_i_1, var_i_2, (var_i_1 / var_i_2));
     PRINT_SAUT_LIGNE;
-    printf("meme soustraction - ecriture differente : X /= Y ou X = X / Y: %d",var_i_1 /= var_i_2);
+    printf("meme soustraction - ecriture differente : X /= Y ou X = X / Y = %d",var_i_1 /= var_i_2);
     PRINT_SAUT_LIGNE;
-    printf("divsion mode affichage flottant :         X / Y  = %f / %f = %f",var_f_1, var_f_2, (var_f_1 / var_f_2));
+    printf("divsion mode affichage flottant :         X / Y  = %.3f / %.3f = %.3f",var_f_1, var_f_2, (var_f_1 / var_f_2));
     PRINT_SAUT_LIGNE;
-    printf("meme soustraction - ecriture differente : X /= Y ou X = X / Y: %f",var_f_1 /= var_f_2);
+    printf("meme soustraction - ecriture differente : X /= Y ou X = X / Y = %.3 f",var_f_1 /= var_f_2);
     //--- réinitialiser la valeur de X ---//
     var_f_1 *= var_f_2;
     PRINT_SAUT_LIGNE;
@@ -250,13 +255,13 @@ int pemier_calcul(int val_x)
 
 
 //----------------------------------------------------------------------------------//
-// Nom de la fonction   : Calculs_Segment 
-// Entrée / Sortie      : 
-// Description          : permet de calculer la longueur d'un segment (point A(x,y) 
-//						  à un point B(x,y)) + le milieu du segment en coordonnée X 
-//                        et Y + ainsi que la pente dans un système d'axes à deux 
-//						  dimension 
-// modification         : le 23.10.2017
+// Nom de la fonction   : Calculs_Segment
+// Entrée / Sortie      :
+// Description          : permet de calculer la longueur d'un segment (point A(x,y)
+//						  à un point B(x,y)) + le milieu du segment en coordonnée X
+//                        et Y + ainsi que la pente dans un système d'axes à deux
+//						  dimension
+// modification         : le 17.09.2019
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Calculs_Segment(void)
@@ -266,27 +271,34 @@ void Calculs_Segment(void)
 	float milieuSegment_X, milieuSegment_Y;
 	float pente;
 
-	int8_t pointA_X, pointA_Y;		// définissant le point A  
-	int8_t pointB_X, pointB_Y;		// définissant le point B 
+	float pointA_X, pointA_Y;		// définissant le point A
+	float pointB_X, pointB_Y;		// définissant le point B
 
 	//-- message utilisateur --//
 	//-- definition du point A (X, Y)
-	PRINT_SAUT_LIGNE; 
-	PRINT_SELECTION_ABSCISSE; 
+	PRINT_SELECTION_ABSCISSE;
 	PRINT_SAUT_LIGNE;
-	pointA_X = Select_Var_Entier(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN); 
-	PRINT_SELECTION_ORDONNEE; 
+	pointA_X = SelectValFlottantAvecLimite(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN);
+	PRINT_SELECTION_ORDONNEE;
 	PRINT_SAUT_LIGNE;
-	pointA_Y = Select_Var_Entier(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
-	
+	pointA_Y = SelectValFlottantAvecLimite(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
+	PRINT_SAUT_LIGNE;
+
 	//-- definition du point B (X, Y)
 	PRINT_SAUT_LIGNE;
 	PRINT_SELECTION_ABSCISSE;
 	PRINT_SAUT_LIGNE;
-	pointB_X = Select_Var_Entier(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN);
+	pointB_X = SelectValFlottantAvecLimite(LIMITE_AXE_X_MAX, LIMITE_AXE_X_MIN);
 	PRINT_SELECTION_ORDONNEE;
 	PRINT_SAUT_LIGNE;
-	pointB_Y = Select_Var_Entier(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
+	pointB_Y = SelectValFlottantAvecLimite(LIMITE_AXE_Y_MAX, LIMITE_AXE_Y_MIN);
+    PRINT_SAUT_LIGNE;
+
+    //-- message recapitulatif --//
+    printf("Coordonnee POINT A [%.2f ; %.2f]", pointA_X, pointA_Y);
+    PRINT_SAUT_LIGNE;
+	printf("Coordonnee POINT B [%.2f ; %.2f]", pointB_X, pointB_Y);
+	PRINT_SAUT_LIGNE;
 
 	//-- partie calcul --//
 	//-- calcul de la distance : d = sqrt (Xb - Xa)^2 + (Yb - Ya)^2
@@ -300,9 +312,9 @@ void Calculs_Segment(void)
 	//-- calcul de la pente : m = (Yb - Ya) / (Xb - Xa)
 	pente = (float)(pointB_Y - pointA_Y) / (float)(pointB_X - pointA_X);
 
-	//-- affichage des différents calculs --// 
-	printf("la distance du segment A - B est de : %f \n", distanceSegmentA_B);
-	printf("le milieu du segment A - B est pour l'abssice de : %f \n", milieuSegment_X);
-	printf("le milieu du segment A - B est pour l'ordonnee : %f \n", milieuSegment_Y);
-	printf("la pente vaut : %f", pente);
+	//-- affichage des différents calculs --//
+	printf("la distance du segment A - B est de : %.3f \n", distanceSegmentA_B);
+	printf("le milieu du segment A - B est pour l'abssice de : %.3f \n", milieuSegment_X);
+	printf("le milieu du segment A - B est pour l'ordonnee   : %.3f \n", milieuSegment_Y);
+	printf("la pente vaut : %.3f", pente);
 }
