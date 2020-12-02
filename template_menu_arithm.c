@@ -2,7 +2,7 @@
 // Nom du projet 		:   Langage_C_fixme
 // Nom du fichier 		:   template_menu_arithm.c
 // Date de création 	:   16.04.2015
-// Date de modification : 	17.03.2019
+// Date de modification : 	01.04.2019
 //
 // Auteur 				: 	Philou (Ph. Bovey)
 //
@@ -78,7 +78,7 @@ void Template_Choix_Menu_OP_Simple(void)
 // Nom de la fonction   : Template_Choix_Menu_Conversion
 // Entrée / Sortie      : - / - /
 // Description          : affiche le choix du menu des opération arithmétique simple
-// Date modfification   : le 08.07.2015
+// Date modfification   : le 01.04.2015
 // Remarque             : -
 //----------------------------------------------------------------------------------//
 void Template_Choix_Menu_Conversion(void)
@@ -89,7 +89,9 @@ void Template_Choix_Menu_Conversion(void)
     PRINT_SAUT_LIGNE;
     printf("[3] %s", NAME_M_CONV_NUM_OCT_HEX);
     PRINT_SAUT_LIGNE;
-    printf("[4] ... \n");
+	printf("[4] %s", NAME_M_CONV_DECIMAL_BINAIRE);
+	PRINT_SAUT_LIGNE;
+    printf("[5] ... \n");
     printf("[A] %s", NAME_M_ASTUCE_CONV_CHAR_NUM);
     PRINT_SAUT_LIGNE;
     printf("[P] --- retour menu %s  ---", NAME_M_PRINICIPAL);
@@ -288,6 +290,8 @@ void Template_Display_Menu_Conversion(char choix_menu)
 	//--- déclaration de variable interne ---//
 	char i, choix_char;
 
+	float choix_float; 
+
 	int choix_int;
 
 	//--- affiche une ligne entière d'étoile ---//
@@ -337,8 +341,8 @@ void Template_Display_Menu_Conversion(char choix_menu)
 		PRINT_SAUT_LIGNE;
 		Template_Menu_Ligne();
 		PRINT_SAUT_LIGNE;
-		choix_int = Select_Var_Entier(LIMITE_NB_MAX, LIMITE_NB_MIN);
-		ConvDeciBinaire(choix_int);
+		choix_float = Select_Var_Flottant();
+		ConvDeciBinaire(choix_float);
 		break;
 
 	case 'A':

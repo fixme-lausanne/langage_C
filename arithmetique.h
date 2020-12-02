@@ -23,16 +23,18 @@
 #define _CRT_NONSTDC_NO_WARNINGS
 
 //--- constante ou définition ---//
-#define BASE_2					2
-#define CHAR_RETOUR_CHARIOT     '\n'      // caractère spécial représentant un retour de ligne
-#define DEBUT_CHAR              65        // correspond a la lettre 'A'
-#define DEBUT_NUM               48        // correspond au caractère '0'
-#define LIMITE_AXE_X_MAX		100		  // abscisse max
-#define LIMITE_AXE_X_MIN		-100	  // abscisse min
-#define LIMITE_AXE_Y_MAX		50		  // ordonnee max
-#define LIMITE_AXE_Y_MIN		-50		  // ordonnee min
-#define NB_ALPHABETE            24        // nombre de caractère dans l'alphabet
-#define SAUT_MAJ_MIN            32        // différence entre les caractères majuscule et minuscule -><-
+#define BASE_2					2			// valeur entière 
+#define VAL_NUM_2_0				2.0			// valeur floattante 
+#define CHAR_RETOUR_CHARIOT     '\n'		// caractère spécial représentant un retour de ligne
+#define DEBUT_CHAR              65			// correspond a la lettre 'A'
+#define DEBUT_NUM               48			// correspond au caractère '0'
+#define LIMITE_AXE_X_MAX		100			// abscisse max
+#define LIMITE_AXE_X_MIN		-100		// abscisse min
+#define LIMITE_AXE_Y_MAX		50			// ordonnee max
+#define LIMITE_AXE_Y_MIN		-50			// ordonnee min
+#define NB_ALPHABETE            24			// nombre de caractère dans l'alphabet
+#define SAUT_MAJ_MIN            32			// différence entre les caractères majuscule et minuscule -><-
+#define TAILLE_TB_BINAIRE		100			// taille enregistrement valeur binaire
 
 //--- déclaration de prototype ---//
 //--- fonctions liées au fichier : calcul_entier.c ---//
@@ -47,7 +49,7 @@ int pemier_calcul(int val_x);               //-> plus implémentée
 
 //--- fonctions liées au fichier : conversions.c ---//
 void Conv_Char_Num(char var_char);          //-> converti un caractère en valeur numérique
-void ConvDeciBinaire(int valDecimal);		//-> converti un nombre décimal en binaire
+void ConvDeciBinaire(float valNum);			//-> converti un nombre décimal en binaire
 void Conv_Num_Char(int var_int);            //-> converti un nombre en caractère
 void Conv_Num_Oct_Hex(int var_int);         //-> converti un nombre en octal et en hexa
 void Astuce_ASCII(void);                    //-> montre toutes les valeurs des caractères
